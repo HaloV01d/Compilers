@@ -101,13 +101,6 @@ LPSIMP is a custom-designed programming language with Spanish syntax, created to
 - Make sure your Python installation is accessible via the `py` launcher on Windows.
 - For best results, use the virtual environment to isolate dependencies.
 
----
-
-## 🙌 Contributing
-
-Feel free to fork the repo and submit pull requests with improvements, bug fixes, or new language features. Contributions are welcome!
-
----
 
 ## 📜 License
 
