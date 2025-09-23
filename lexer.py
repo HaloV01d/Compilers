@@ -1,19 +1,35 @@
 from ply import lex
 
+# List of reserved words
+Palabras_Reservadas = ('inicio', 'final', 'Si', 'sino', 'finsi', 'Lee', 'Escribe')
+
 # List of token names.
-tokens = ('Palabras_Reservadas', 'Operador_Asig','Operadores_Binarios', 'Letra', 'Digito', 'Num','Identificador', 'Parentesis', 'Punto_Coma')
+tokens = Palabras_Reservadas + ('Operador_Asig','Operadores_Binarios', 'Letra', 'Digito', 'Num','Identificador', 'Parentesis', 'Punto_Coma')
 
 # Regular expression rules for simple tokens
 # Note: The order of these definitions matters for correct tokenization.
-t_Palabras_Reservadas = r'\b(inicio|final|Si|sino|finsi|Lee|Escribe)\b'
 t_Operador_Asig = r'='
 t_Operadores_Binarios = r'\+|-|\*|/|%|<=|>=|<>|==|<|>'
 t_Letra = r'[a-z]'
 t_Digito = r'[0-9]'
-t_Num = r'\d+'
-t_Identificador = r'[a-z][a-z0-9]+'
 t_Parentesis = r'\(|\)'
 t_Punto_Coma = r';'
+
+# A regular expression rule with some action code
+def t_Identificador(t):
+    r'[a-z][a-z0-9]*'
+    if t.value in Palabras_Reservadas:
+        t.type = t.value
+    else:
+        t.type = 'Identificador'
+    return t
+
+
+# A regular expression rule with some action code
+def t_Num(t):
+    r'\d+'
+    t.value = int(t.value)    
+    return t
 
 # A string containing ignored characters (spaces and tabs)
 t_ignore = ' \t'
@@ -22,6 +38,7 @@ t_ignore = ' \t'
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
+
 
 # Error handling rule
 def t_error(t):
