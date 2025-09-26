@@ -20,10 +20,27 @@ def t_Identificador(t):
     r'[a-z][a-z0-9]*'
     if t.value in Palabras_Reservadas:
         t.type = t.value
+        t.reservada = True
     else:
         t.type = 'Identificador'
+        t.reservada = False
     return t
 
+
+def t_Si(t): # Define a rule for the 'Si' reserved word
+    r'Si'
+    t.reservada = True
+    return t
+
+def t_Lee(t): # Define a rule for the 'Lee' reserved word
+    r'Lee'
+    t.reservada = True
+    return t
+
+def t_Escribe(t): # Define a rule for the 'Escribe' reserved word
+    r'Escribe'
+    t.reservada = True
+    return t    
 
 # A regular expression rule with some action code
 def t_Num(t):
@@ -52,8 +69,12 @@ lexer = lex.lex()
 if __name__ == "__main__":
     data = '''
     inicio
-    x = 10;
-    Si (x > 5) Escribe(x);
+    primer = 3
+    segundo = 5;
+    Si (primer < segundo) 
+    Escribe(primer);
+    sino
+    Escribe(segundo);
     finsi
     final
     '''
@@ -62,6 +83,8 @@ if __name__ == "__main__":
     lexer.input(data)
 
     # Tokenize and print the tokens
-    for tok in lexer:
-        print(tok)
-        
+    for tok in lexer: # Get the next token
+        if hasattr(tok, 'reservada') and tok.reservada: # Check if it's a reserved word
+            print(f"Palabra reservada: '{tok.value}' en línea {tok.lineno}") # Print reserved words differently
+        else: # Print other tokens normally
+            print(f"{tok.type}: '{tok.value}' en línea {tok.lineno}")
