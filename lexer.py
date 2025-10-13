@@ -73,7 +73,7 @@ lexer = lex.lex() # Construir el analizador léxico
 # =========================
 #     PRUEBA RÁPIDA
 # =========================
-if __name__ == '__main__':
+if __name__ == '__main__': # Prueba rápida del analizador léxico
     data = '''
 inicio
 primer = 3
