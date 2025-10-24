@@ -30,3 +30,27 @@ def p_secuenciaInst_multiple(p):
 def p_secuenciaInst_single(p):
     'secuenciaInst : instruccion'
     p[0] = ('secuenciaInst', p[1])
+
+def p_identificador(p):
+    'expresion : Identificador'
+    p[0] = ('identificador', p[1])
+
+def p_secuenciaInst(p):
+    'secuenciaInst : instruccion secuenciaInst'
+    p[0] = ('secuenciaInst', p[1], p[2])
+
+def p_expresion_num(p):
+    'expresion : Num'
+    p[0] = ('num', p[1])
+
+def p_expresion_binaria(p):
+    'expresion : expresion Operadores_Binarios expresion'
+    p[0] = ('binaria', p[2], p[1], p[3])
+
+def p_error(p):
+    if p:
+        print(f"Error de sintaxis en el token '{p.value}' en la línea {p.lineno}")
+    else:
+        print("Error de sintaxis al final del archivo")
+
+parser = yacc.yacc()

@@ -75,15 +75,17 @@ lexer = lex.lex() # Construir el analizador léxico
 # =========================
 if __name__ == '__main__': # Prueba rápida del analizador léxico
     data = '''
-inicio
-primer = 3
-segundo = 5
-Si (primer < segundo)
-Escribe(primer);
-Sino
-Escribe(segundo);
-finsi
-final
+:Inicio
+cuentá = 45;
+Banco = 35;
+$saldo = 10;
+Escribe(cuentá);
+Escribe(“texto”);
+Escribe(¿banco?);
+Final!
+
+
+
 
     '''
     print("=== TOKENS ===")
