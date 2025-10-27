@@ -1,0 +1,8 @@
+:Inicio
+cuentá = 45;
+Banco = 35;
+$saldo = 10;
+Escribe(cuentá);
+Escribe(“texto”);
+Escribe(¿banco?);
+Final!

@@ -1,0 +1,6 @@
+inicio
+numero1 = 10
+numero2 = 12
+suma = numero1 + numero2
+Escribe(suma);
+final

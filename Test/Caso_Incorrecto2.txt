@@ -1,0 +1,10 @@
+inicio
+Xx = 5$
+y = 7
+Igual = Xx
+sI (Xx < y);
+Escribe(primer);
+Sino
+Escribe(diferente);
+finsi
+final

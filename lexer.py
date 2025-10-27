@@ -4,47 +4,53 @@ from ply import lex
 #       ANALIZADOR LÉXICO
 # =========================
 
-RESERVADAS_MIN = { # Palabras reservadas en minúsculas
-    'inicio': 'inicio',
-    'final': 'final',
-    'sino': 'sino',
-    'finsi': 'finsi',
+RESERVADAS = { # Palabras reservadas en minúsculas
+    'inicio': 'INICIO',
+    'final': 'FINAL',
+    'sino': 'SINO',
+    'finsi': 'FINSI',
+    'si': 'SI',
+    'lee': 'LEE',
+    'escribe': 'ESCRIBE',
 }
 
 tokens = ( # Lista de tokens
-    'inicio', 'final', 'sino', 'finsi',
-    'Si', 'Lee', 'Escribe',
-    'Operador_Asig', 'Operadores_Binarios',
-    'Num', 'Identificador',
-    'Parentesis', 'Punto_Coma',
+    'INICIO', 'FINAL', 'SINO', 'FINSI',
+    'SI', 'LEE', 'ESCRIBE',
+    'OPERADOR_ASIG', 'OPERADORES_BINARIOS',
+    'NUM', 'IDENTIFICADOR',
+    'LPAREN','RPAREN', 'PUNTO_COMA',
 )
 
-t_Operador_Asig   = r'=' # Operador de asignación
-t_Operadores_Binarios = r'<=|>=|==|<>|\+|-|\*|/|%|<|>' # Operadores binarios
-t_Parentesis = r'\(|\)' # Paréntesis
-t_Punto_Coma      = r';' # Punto y coma
+literals = ['+', '-', '*', '/', '%', '<', '>', '=', '(', ')', ';']
 
-def t_Num(t): # Número entero
+t_OPERADOR_ASIG = r'=' # Operador de asignación
+t_OPERADORES_BINARIOS = r'<=|>=|==|<>' # Operadores binarios
+t_LPAREN = r'\(' # Paréntesis izquierdo
+t_RPAREN = r'\)' # Paréntesis derecho
+t_PUNTO_COMA = r';' # Punto y coma
+
+def t_NUM(t): # Número entero
     r'\d+'
     t.value = int(t.value)
     return t
 
-def t_Si(t): # Si
+def t_SI(t): # Si
     r'Si'
     return t
 
-def t_Lee(t): # Lee
+def t_LEE(t): # Lee
     r'Lee'
     return t
 
-def t_Escribe(t): # Escribe
+def t_ESCRIBE(t): # Escribe
     r'Escribe'
     return t
 
-def t_Identificador(t): # Identificador
+def t_IDENTIFICADOR(t): # Identificador
     r'[a-z][a-z0-9]+'
-    if t.value in RESERVADAS_MIN: # Verificar si es palabra reservada
-        t.type = RESERVADAS_MIN[t.value]
+    if t.value in RESERVADAS: # Verificar si es palabra reservada
+        t.type = RESERVADAS[t.value]
     return t
 
 t_ignore = ' \t' # Ignorar espacios y tabulaciones
@@ -73,26 +79,16 @@ lexer = lex.lex() # Construir el analizador léxico
 # =========================
 #     PRUEBA RÁPIDA
 # =========================
-if __name__ == '__main__': # Prueba rápida del analizador léxico
-    data = '''
-:Inicio
-cuentá = 45;
-Banco = 35;
-$saldo = 10;
-Escribe(cuentá);
-Escribe(“texto”);
-Escribe(¿banco?);
-Final!
+if __name__ == '__main__':  # Prueba rápida del analizador léxico
+    ruta = 'C:\\Users\\Alondra Soto\\OneDrive\\Documents\\Development\\Compilers\\Test\\Caso_Correcto1.txt'  #  Cambia esto por la ruta de tu archivo de entrada
+    with open(ruta, 'r', encoding='utf-8') as archivo:
+        data = archivo.read()
 
-
-
-
-    '''
     print("=== TOKENS ===")
-    lexer.input(data) # Proveer datos al analizador léxico
+    lexer.input(data)  # Proveer datos al analizador léxico
+
     for tok in lexer:
-        # Detecta si es palabra reservada
-        if tok.type in ('inicio', 'final', 'sino', 'finsi', 'Si', 'Lee', 'Escribe'): # Palabra reservada
-            print(f"Palabra reservada: '{tok.value}' (línea {tok.lineno})")
+        if tok.type in ('INICIO', 'FINAL', 'SINO', 'FINSI', 'SI', 'LEE', 'ESCRIBE'):
+            print(f"PALABRA RESERVADA: '{tok.value}' (línea {tok.lineno})")
         else:
-            print(f"{tok.type:20} '{tok.value}' (línea {tok.lineno})")
+            print(f"{tok.type}: '{tok.value}' (línea {tok.lineno})")

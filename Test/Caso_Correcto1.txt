@@ -1,0 +1,9 @@
+inicio
+primer = 3
+segundo = 5
+Si (primer < segundo)
+Escribe(primer);
+sino
+Escribe(segundo);
+finsi
+final

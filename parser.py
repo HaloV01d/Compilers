@@ -1,51 +1,90 @@
 from ply import yacc
-from Compilers.lexer import lexer
-
-
-tokens = lexer.tokens # Import tokens from lexer
+from lexer import lexer, tokens
 
 # Define the grammar rules
 def p_programa(p): # Program rule
-    'programa : inicio secuenciaInst final'
+    'programa : INICIO secuenciaInst FINAL'
     p[0] = ('programa', p[2])
 
-precedence = ( # Define operator precedence
+precedence = ( # Operator precedence
     ('left', '+', '-'),
-    ('left', '*', '/'),
-    ('right'),
+    ('left', '*', '/', '%'),
+    ('nonassoc', '<', '>')
 )
 
 def p_asignacion(p): # Assignment rule
-    'asignacion : Identificador Operador_Asig expresion Punto_Coma'
+    'asignacion : IDENTIFICADOR OPERADOR_ASIG expresion'
     p[0] = ('asignacion', p[1], p[3])
 
-def p_instruccion_asignacion(p): # Instruction assignment rule
+def p_instruccion_asignacion(p): # Assignment instruction rule
     'instruccion : asignacion'
     p[0] = p[1]
 
-def p_secuenciaInst_multiple(p): # Multiple instruction sequence rule
-    'secuenciaInst : instruccion secuenciaInst'
-    p[0] = ('secuenciaInst', p[1], p[2])
+def p_identificador(p): # Identifier expression rule
+    'expresion : IDENTIFICADOR'
+    p[0] = ('identificador', p[1])
 
-def p_secuenciaInst_single(p): # Single instruction sequence rule
+def p_expresion_num(p): # Numeric expression rule
+    'expresion : NUM'
+    p[0] = ('num', p[1])
+
+def p_expresion_parentesis(p): # Parentheses expression rule
+    'expresion : LPAREN expresion RPAREN'
+    p[0] = p[2]
+
+def p_expresion_unaria(p): # Unary expression rule
+    'expresion : OPERADORES_BINARIOS expresion'
+    if p[1] == '-':
+        p[0] = ('negacion', p[2])
+    else:
+        p[0] = ('positivo', p[2])
+
+def p_secuenciaInst(p): # Sequence of instructions rule
     'secuenciaInst : instruccion'
     p[0] = ('secuenciaInst', p[1])
 
-def p_identificador(p): # Identifier expression rule
-    'expresion : Identificador'
-    p[0] = ('identificador', p[1])
-
-def p_secuenciaInst(p): # Sequence of instructions rule
+def p_secuenciaInst_multiple(p): # Multiple instructions rule
     'secuenciaInst : instruccion secuenciaInst'
     p[0] = ('secuenciaInst', p[1], p[2])
 
-def p_expresion_num(p): # Numeric expression rule
-    'expresion : Num'
-    p[0] = ('num', p[1])
+def p_instruccion_lee(p): # Read instruction rule
+    'instruccion : LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA'
+    p[0] = ('lee', p[3])
 
-def p_expresion_binaria(p): # Binary expression rule
-    'expresion : expresion Operadores_Binarios expresion'
-    p[0] = ('binaria', p[2], p[1], p[3])
+def p_instruccion_escribe(p): # Write instruction rule
+    'instruccion : ESCRIBE LPAREN expresion RPAREN PUNTO_COMA'
+    p[0] = ('escribe', p[3])
+
+def p_instruccion_si(p): # If instruction rule
+    'instruccion : SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI'
+    p[0] = ('si', p[3], p[5], p[7])
+
+def p_instruccion_si_con_sino(p): # If instruction with else rule
+    'instruccion : SI LPAREN expresion RPAREN secuenciaInst FINSI'
+    p[0] = ('si', p[3], p[5], None)
+
+def p_operadores_binarios(p): # Binary expression rule
+    '''expresion : expresion '+' expresion
+                | expresion '-' expresion
+                | expresion '*' expresion
+                | expresion '/' expresion
+                | expresion '%' expresion
+                | expresion '<' expresion
+                | expresion '>' expresion'''
+    if p[2] == '+':
+        p[0] = ('suma', p[1], p[3])
+    elif p[2] == '-':
+        p[0] = ('resta', p[1], p[3])
+    elif p[2] == '*':
+        p[0] = ('multiplicacion', p[1], p[3])
+    elif p[2] == '/':
+        p[0] = ('division', p[1], p[3])
+    elif p[2] == '%':
+        p[0] = ('modulo', p[1], p[3])
+    elif p[2] == '<':
+        p[0] = ('menor_que', p[1], p[3])
+    elif p[2] == '>':
+        p[0] = ('mayor_que', p[1], p[3])
 
 def p_error(p): # Error handling rule
     if p:
@@ -54,3 +93,10 @@ def p_error(p): # Error handling rule
         print("Error de sintaxis al final del archivo")
 
 parser = yacc.yacc() # Build the parser
+
+if __name__ == '__main__': # Test the parser
+    ruta = 'C:\\Users\\Alondra Soto\\OneDrive\\Documents\\Development\\Compilers\\Test\\Caso_Correcto1.txt'
+    with open(ruta, 'r') as archivo:
+        datos = archivo.read()
+    result = parser.parse(datos) # Parse the input data
+    print(result) # Print the result

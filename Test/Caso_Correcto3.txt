@@ -1,0 +1,4 @@
+inicio
+Lee(palabra);
+Escribe(palabra);
+final
