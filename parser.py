@@ -88,9 +88,9 @@ def p_operadores_binarios(p): # Binary expression rule
 
 def p_error(p): # Error handling rule
     if p:
-        print(f"Error de sintaxis en el token '{p.value}' en la línea {p.lineno}")
+        print(f"\033[91mError de sintaxis en el token '{p.value}' en la línea {p.lineno}\033[0m")
     else:
-        print("Error de sintaxis al final del archivo")
+        print(f"\033[91mError de sintaxis al final del archivo\033[0m")
 
 parser = yacc.yacc() # Build the parser
 
@@ -99,4 +99,5 @@ if __name__ == '__main__': # Test the parser
     with open(ruta, 'r') as archivo:
         datos = archivo.read()
     result = parser.parse(datos) # Parse the input data
+    print("=== RESULTADO DEL PARSEO ===")
     print(result) # Print the result
