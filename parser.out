@@ -1,0 +1,1049 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> INICIO secuenciaInst FINAL
+Rule 2     asignacion -> IDENTIFICADOR OPERADOR_ASIG expresion
+Rule 3     instruccion -> asignacion
+Rule 4     expresion -> IDENTIFICADOR
+Rule 5     expresion -> NUM
+Rule 6     expresion -> LPAREN expresion RPAREN
+Rule 7     expresion -> OPERADORES_BINARIOS expresion
+Rule 8     secuenciaInst -> instruccion
+Rule 9     secuenciaInst -> instruccion secuenciaInst
+Rule 10    instruccion -> LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA
+Rule 11    instruccion -> ESCRIBE LPAREN expresion RPAREN PUNTO_COMA
+Rule 12    instruccion -> SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI
+Rule 13    instruccion -> SI LPAREN expresion RPAREN secuenciaInst FINSI
+Rule 14    expresion -> expresion + expresion
+Rule 15    expresion -> expresion - expresion
+Rule 16    expresion -> expresion * expresion
+Rule 17    expresion -> expresion / expresion
+Rule 18    expresion -> expresion % expresion
+Rule 19    expresion -> expresion < expresion
+Rule 20    expresion -> expresion > expresion
+
+Terminals, with rules where they appear
+
+%                    : 18
+*                    : 16
++                    : 14
+-                    : 15
+/                    : 17
+<                    : 19
+>                    : 20
+ESCRIBE              : 11
+FINAL                : 1
+FINSI                : 12 13
+IDENTIFICADOR        : 2 4 10
+INICIO               : 1
+LEE                  : 10
+LPAREN               : 6 10 11 12 13
+NUM                  : 5
+OPERADORES_BINARIOS  : 7
+OPERADOR_ASIG        : 2
+PUNTO_COMA           : 10 11
+RPAREN               : 6 10 11 12 13
+SI                   : 12 13
+SINO                 : 12
+error                : 
+
+Nonterminals, with rules where they appear
+
+asignacion           : 3
+expresion            : 2 6 7 11 12 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20
+instruccion          : 8 9
+programa             : 0
+secuenciaInst        : 1 9 12 12 13
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . programa
+    (1) programa -> . INICIO secuenciaInst FINAL
+
+    INICIO          shift and go to state 2
+
+    programa                       shift and go to state 1
+
+state 1
+
+    (0) S' -> programa .
+
+
+
+state 2
+
+    (1) programa -> INICIO . secuenciaInst FINAL
+    (8) secuenciaInst -> . instruccion
+    (9) secuenciaInst -> . instruccion secuenciaInst
+    (3) instruccion -> . asignacion
+    (10) instruccion -> . LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA
+    (11) instruccion -> . ESCRIBE LPAREN expresion RPAREN PUNTO_COMA
+    (12) instruccion -> . SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI
+    (13) instruccion -> . SI LPAREN expresion RPAREN secuenciaInst FINSI
+    (2) asignacion -> . IDENTIFICADOR OPERADOR_ASIG expresion
+
+    LEE             shift and go to state 6
+    ESCRIBE         shift and go to state 8
+    SI              shift and go to state 9
+    IDENTIFICADOR   shift and go to state 7
+
+    secuenciaInst                  shift and go to state 3
+    instruccion                    shift and go to state 4
+    asignacion                     shift and go to state 5
+
+state 3
+
+    (1) programa -> INICIO secuenciaInst . FINAL
+
+    FINAL           shift and go to state 10
+
+
+state 4
+
+    (8) secuenciaInst -> instruccion .
+    (9) secuenciaInst -> instruccion . secuenciaInst
+    (8) secuenciaInst -> . instruccion
+    (9) secuenciaInst -> . instruccion secuenciaInst
+    (3) instruccion -> . asignacion
+    (10) instruccion -> . LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA
+    (11) instruccion -> . ESCRIBE LPAREN expresion RPAREN PUNTO_COMA
+    (12) instruccion -> . SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI
+    (13) instruccion -> . SI LPAREN expresion RPAREN secuenciaInst FINSI
+    (2) asignacion -> . IDENTIFICADOR OPERADOR_ASIG expresion
+
+    FINAL           reduce using rule 8 (secuenciaInst -> instruccion .)
+    SINO            reduce using rule 8 (secuenciaInst -> instruccion .)
+    FINSI           reduce using rule 8 (secuenciaInst -> instruccion .)
+    LEE             shift and go to state 6
+    ESCRIBE         shift and go to state 8
+    SI              shift and go to state 9
+    IDENTIFICADOR   shift and go to state 7
+
+    instruccion                    shift and go to state 4
+    secuenciaInst                  shift and go to state 11
+    asignacion                     shift and go to state 5
+
+state 5
+
+    (3) instruccion -> asignacion .
+
+    LEE             reduce using rule 3 (instruccion -> asignacion .)
+    ESCRIBE         reduce using rule 3 (instruccion -> asignacion .)
+    SI              reduce using rule 3 (instruccion -> asignacion .)
+    IDENTIFICADOR   reduce using rule 3 (instruccion -> asignacion .)
+    FINAL           reduce using rule 3 (instruccion -> asignacion .)
+    SINO            reduce using rule 3 (instruccion -> asignacion .)
+    FINSI           reduce using rule 3 (instruccion -> asignacion .)
+
+
+state 6
+
+    (10) instruccion -> LEE . LPAREN IDENTIFICADOR RPAREN PUNTO_COMA
+
+    LPAREN          shift and go to state 12
+
+
+state 7
+
+    (2) asignacion -> IDENTIFICADOR . OPERADOR_ASIG expresion
+
+    OPERADOR_ASIG   shift and go to state 13
+
+
+state 8
+
+    (11) instruccion -> ESCRIBE . LPAREN expresion RPAREN PUNTO_COMA
+
+    LPAREN          shift and go to state 14
+
+
+state 9
+
+    (12) instruccion -> SI . LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI
+    (13) instruccion -> SI . LPAREN expresion RPAREN secuenciaInst FINSI
+
+    LPAREN          shift and go to state 15
+
+
+state 10
+
+    (1) programa -> INICIO secuenciaInst FINAL .
+
+    $end            reduce using rule 1 (programa -> INICIO secuenciaInst FINAL .)
+
+
+state 11
+
+    (9) secuenciaInst -> instruccion secuenciaInst .
+
+    FINAL           reduce using rule 9 (secuenciaInst -> instruccion secuenciaInst .)
+    SINO            reduce using rule 9 (secuenciaInst -> instruccion secuenciaInst .)
+    FINSI           reduce using rule 9 (secuenciaInst -> instruccion secuenciaInst .)
+
+
+state 12
+
+    (10) instruccion -> LEE LPAREN . IDENTIFICADOR RPAREN PUNTO_COMA
+
+    IDENTIFICADOR   shift and go to state 16
+
+
+state 13
+
+    (2) asignacion -> IDENTIFICADOR OPERADOR_ASIG . expresion
+    (4) expresion -> . IDENTIFICADOR
+    (5) expresion -> . NUM
+    (6) expresion -> . LPAREN expresion RPAREN
+    (7) expresion -> . OPERADORES_BINARIOS expresion
+    (14) expresion -> . expresion + expresion
+    (15) expresion -> . expresion - expresion
+    (16) expresion -> . expresion * expresion
+    (17) expresion -> . expresion / expresion
+    (18) expresion -> . expresion % expresion
+    (19) expresion -> . expresion < expresion
+    (20) expresion -> . expresion > expresion
+
+    IDENTIFICADOR   shift and go to state 17
+    NUM             shift and go to state 19
+    LPAREN          shift and go to state 20
+    OPERADORES_BINARIOS shift and go to state 21
+
+    expresion                      shift and go to state 18
+
+state 14
+
+    (11) instruccion -> ESCRIBE LPAREN . expresion RPAREN PUNTO_COMA
+    (4) expresion -> . IDENTIFICADOR
+    (5) expresion -> . NUM
+    (6) expresion -> . LPAREN expresion RPAREN
+    (7) expresion -> . OPERADORES_BINARIOS expresion
+    (14) expresion -> . expresion + expresion
+    (15) expresion -> . expresion - expresion
+    (16) expresion -> . expresion * expresion
+    (17) expresion -> . expresion / expresion
+    (18) expresion -> . expresion % expresion
+    (19) expresion -> . expresion < expresion
+    (20) expresion -> . expresion > expresion
+
+    IDENTIFICADOR   shift and go to state 17
+    NUM             shift and go to state 19
+    LPAREN          shift and go to state 20
+    OPERADORES_BINARIOS shift and go to state 21
+
+    expresion                      shift and go to state 22
+
+state 15
+
+    (12) instruccion -> SI LPAREN . expresion RPAREN secuenciaInst SINO secuenciaInst FINSI
+    (13) instruccion -> SI LPAREN . expresion RPAREN secuenciaInst FINSI
+    (4) expresion -> . IDENTIFICADOR
+    (5) expresion -> . NUM
+    (6) expresion -> . LPAREN expresion RPAREN
+    (7) expresion -> . OPERADORES_BINARIOS expresion
+    (14) expresion -> . expresion + expresion
+    (15) expresion -> . expresion - expresion
+    (16) expresion -> . expresion * expresion
+    (17) expresion -> . expresion / expresion
+    (18) expresion -> . expresion % expresion
+    (19) expresion -> . expresion < expresion
+    (20) expresion -> . expresion > expresion
+
+    IDENTIFICADOR   shift and go to state 17
+    NUM             shift and go to state 19
+    LPAREN          shift and go to state 20
+    OPERADORES_BINARIOS shift and go to state 21
+
+    expresion                      shift and go to state 23
+
+state 16
+
+    (10) instruccion -> LEE LPAREN IDENTIFICADOR . RPAREN PUNTO_COMA
+
+    RPAREN          shift and go to state 24
+
+
+state 17
+
+    (4) expresion -> IDENTIFICADOR .
+
+    +               reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    -               reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    *               reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    /               reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    %               reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    <               reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    >               reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    LEE             reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    ESCRIBE         reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    SI              reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    IDENTIFICADOR   reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    FINAL           reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    SINO            reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    FINSI           reduce using rule 4 (expresion -> IDENTIFICADOR .)
+    RPAREN          reduce using rule 4 (expresion -> IDENTIFICADOR .)
+
+
+state 18
+
+    (2) asignacion -> IDENTIFICADOR OPERADOR_ASIG expresion .
+    (14) expresion -> expresion . + expresion
+    (15) expresion -> expresion . - expresion
+    (16) expresion -> expresion . * expresion
+    (17) expresion -> expresion . / expresion
+    (18) expresion -> expresion . % expresion
+    (19) expresion -> expresion . < expresion
+    (20) expresion -> expresion . > expresion
+
+    LEE             reduce using rule 2 (asignacion -> IDENTIFICADOR OPERADOR_ASIG expresion .)
+    ESCRIBE         reduce using rule 2 (asignacion -> IDENTIFICADOR OPERADOR_ASIG expresion .)
+    SI              reduce using rule 2 (asignacion -> IDENTIFICADOR OPERADOR_ASIG expresion .)
+    IDENTIFICADOR   reduce using rule 2 (asignacion -> IDENTIFICADOR OPERADOR_ASIG expresion .)
+    FINAL           reduce using rule 2 (asignacion -> IDENTIFICADOR OPERADOR_ASIG expresion .)
+    SINO            reduce using rule 2 (asignacion -> IDENTIFICADOR OPERADOR_ASIG expresion .)
+    FINSI           reduce using rule 2 (asignacion -> IDENTIFICADOR OPERADOR_ASIG expresion .)
+    +               shift and go to state 25
+    -               shift and go to state 26
+    *               shift and go to state 27
+    /               shift and go to state 28
+    %               shift and go to state 29
+    <               shift and go to state 30
+    >               shift and go to state 31
+
+
+state 19
+
+    (5) expresion -> NUM .
+
+    +               reduce using rule 5 (expresion -> NUM .)
+    -               reduce using rule 5 (expresion -> NUM .)
+    *               reduce using rule 5 (expresion -> NUM .)
+    /               reduce using rule 5 (expresion -> NUM .)
+    %               reduce using rule 5 (expresion -> NUM .)
+    <               reduce using rule 5 (expresion -> NUM .)
+    >               reduce using rule 5 (expresion -> NUM .)
+    LEE             reduce using rule 5 (expresion -> NUM .)
+    ESCRIBE         reduce using rule 5 (expresion -> NUM .)
+    SI              reduce using rule 5 (expresion -> NUM .)
+    IDENTIFICADOR   reduce using rule 5 (expresion -> NUM .)
+    FINAL           reduce using rule 5 (expresion -> NUM .)
+    SINO            reduce using rule 5 (expresion -> NUM .)
+    FINSI           reduce using rule 5 (expresion -> NUM .)
+    RPAREN          reduce using rule 5 (expresion -> NUM .)
+
+
+state 20
+
+    (6) expresion -> LPAREN . expresion RPAREN
+    (4) expresion -> . IDENTIFICADOR
+    (5) expresion -> . NUM
+    (6) expresion -> . LPAREN expresion RPAREN
+    (7) expresion -> . OPERADORES_BINARIOS expresion
+    (14) expresion -> . expresion + expresion
+    (15) expresion -> . expresion - expresion
+    (16) expresion -> . expresion * expresion
+    (17) expresion -> . expresion / expresion
+    (18) expresion -> . expresion % expresion
+    (19) expresion -> . expresion < expresion
+    (20) expresion -> . expresion > expresion
+
+    IDENTIFICADOR   shift and go to state 17
+    NUM             shift and go to state 19
+    LPAREN          shift and go to state 20
+    OPERADORES_BINARIOS shift and go to state 21
+
+    expresion                      shift and go to state 32
+
+state 21
+
+    (7) expresion -> OPERADORES_BINARIOS . expresion
+    (4) expresion -> . IDENTIFICADOR
+    (5) expresion -> . NUM
+    (6) expresion -> . LPAREN expresion RPAREN
+    (7) expresion -> . OPERADORES_BINARIOS expresion
+    (14) expresion -> . expresion + expresion
+    (15) expresion -> . expresion - expresion
+    (16) expresion -> . expresion * expresion
+    (17) expresion -> . expresion / expresion
+    (18) expresion -> . expresion % expresion
+    (19) expresion -> . expresion < expresion
+    (20) expresion -> . expresion > expresion
+
+    IDENTIFICADOR   shift and go to state 17
+    NUM             shift and go to state 19
+    LPAREN          shift and go to state 20
+    OPERADORES_BINARIOS shift and go to state 21
+
+    expresion                      shift and go to state 33
+
+state 22
+
+    (11) instruccion -> ESCRIBE LPAREN expresion . RPAREN PUNTO_COMA
+    (14) expresion -> expresion . + expresion
+    (15) expresion -> expresion . - expresion
+    (16) expresion -> expresion . * expresion
+    (17) expresion -> expresion . / expresion
+    (18) expresion -> expresion . % expresion
+    (19) expresion -> expresion . < expresion
+    (20) expresion -> expresion . > expresion
+
+    RPAREN          shift and go to state 34
+    +               shift and go to state 25
+    -               shift and go to state 26
+    *               shift and go to state 27
+    /               shift and go to state 28
+    %               shift and go to state 29
+    <               shift and go to state 30
+    >               shift and go to state 31
+
+
+state 23
+
+    (12) instruccion -> SI LPAREN expresion . RPAREN secuenciaInst SINO secuenciaInst FINSI
+    (13) instruccion -> SI LPAREN expresion . RPAREN secuenciaInst FINSI
+    (14) expresion -> expresion . + expresion
+    (15) expresion -> expresion . - expresion
+    (16) expresion -> expresion . * expresion
+    (17) expresion -> expresion . / expresion
+    (18) expresion -> expresion . % expresion
+    (19) expresion -> expresion . < expresion
+    (20) expresion -> expresion . > expresion
+
+    RPAREN          shift and go to state 35
+    +               shift and go to state 25
+    -               shift and go to state 26
+    *               shift and go to state 27
+    /               shift and go to state 28
+    %               shift and go to state 29
+    <               shift and go to state 30
+    >               shift and go to state 31
+
+
+state 24
+
+    (10) instruccion -> LEE LPAREN IDENTIFICADOR RPAREN . PUNTO_COMA
+
+    PUNTO_COMA      shift and go to state 36
+
+
+state 25
+
+    (14) expresion -> expresion + . expresion
+    (4) expresion -> . IDENTIFICADOR
+    (5) expresion -> . NUM
+    (6) expresion -> . LPAREN expresion RPAREN
+    (7) expresion -> . OPERADORES_BINARIOS expresion
+    (14) expresion -> . expresion + expresion
+    (15) expresion -> . expresion - expresion
+    (16) expresion -> . expresion * expresion
+    (17) expresion -> . expresion / expresion
+    (18) expresion -> . expresion % expresion
+    (19) expresion -> . expresion < expresion
+    (20) expresion -> . expresion > expresion
+
+    IDENTIFICADOR   shift and go to state 17
+    NUM             shift and go to state 19
+    LPAREN          shift and go to state 20
+    OPERADORES_BINARIOS shift and go to state 21
+
+    expresion                      shift and go to state 37
+
+state 26
+
+    (15) expresion -> expresion - . expresion
+    (4) expresion -> . IDENTIFICADOR
+    (5) expresion -> . NUM
+    (6) expresion -> . LPAREN expresion RPAREN
+    (7) expresion -> . OPERADORES_BINARIOS expresion
+    (14) expresion -> . expresion + expresion
+    (15) expresion -> . expresion - expresion
+    (16) expresion -> . expresion * expresion
+    (17) expresion -> . expresion / expresion
+    (18) expresion -> . expresion % expresion
+    (19) expresion -> . expresion < expresion
+    (20) expresion -> . expresion > expresion
+
+    IDENTIFICADOR   shift and go to state 17
+    NUM             shift and go to state 19
+    LPAREN          shift and go to state 20
+    OPERADORES_BINARIOS shift and go to state 21
+
+    expresion                      shift and go to state 38
+
+state 27
+
+    (16) expresion -> expresion * . expresion
+    (4) expresion -> . IDENTIFICADOR
+    (5) expresion -> . NUM
+    (6) expresion -> . LPAREN expresion RPAREN
+    (7) expresion -> . OPERADORES_BINARIOS expresion
+    (14) expresion -> . expresion + expresion
+    (15) expresion -> . expresion - expresion
+    (16) expresion -> . expresion * expresion
+    (17) expresion -> . expresion / expresion
+    (18) expresion -> . expresion % expresion
+    (19) expresion -> . expresion < expresion
+    (20) expresion -> . expresion > expresion
+
+    IDENTIFICADOR   shift and go to state 17
+    NUM             shift and go to state 19
+    LPAREN          shift and go to state 20
+    OPERADORES_BINARIOS shift and go to state 21
+
+    expresion                      shift and go to state 39
+
+state 28
+
+    (17) expresion -> expresion / . expresion
+    (4) expresion -> . IDENTIFICADOR
+    (5) expresion -> . NUM
+    (6) expresion -> . LPAREN expresion RPAREN
+    (7) expresion -> . OPERADORES_BINARIOS expresion
+    (14) expresion -> . expresion + expresion
+    (15) expresion -> . expresion - expresion
+    (16) expresion -> . expresion * expresion
+    (17) expresion -> . expresion / expresion
+    (18) expresion -> . expresion % expresion
+    (19) expresion -> . expresion < expresion
+    (20) expresion -> . expresion > expresion
+
+    IDENTIFICADOR   shift and go to state 17
+    NUM             shift and go to state 19
+    LPAREN          shift and go to state 20
+    OPERADORES_BINARIOS shift and go to state 21
+
+    expresion                      shift and go to state 40
+
+state 29
+
+    (18) expresion -> expresion % . expresion
+    (4) expresion -> . IDENTIFICADOR
+    (5) expresion -> . NUM
+    (6) expresion -> . LPAREN expresion RPAREN
+    (7) expresion -> . OPERADORES_BINARIOS expresion
+    (14) expresion -> . expresion + expresion
+    (15) expresion -> . expresion - expresion
+    (16) expresion -> . expresion * expresion
+    (17) expresion -> . expresion / expresion
+    (18) expresion -> . expresion % expresion
+    (19) expresion -> . expresion < expresion
+    (20) expresion -> . expresion > expresion
+
+    IDENTIFICADOR   shift and go to state 17
+    NUM             shift and go to state 19
+    LPAREN          shift and go to state 20
+    OPERADORES_BINARIOS shift and go to state 21
+
+    expresion                      shift and go to state 41
+
+state 30
+
+    (19) expresion -> expresion < . expresion
+    (4) expresion -> . IDENTIFICADOR
+    (5) expresion -> . NUM
+    (6) expresion -> . LPAREN expresion RPAREN
+    (7) expresion -> . OPERADORES_BINARIOS expresion
+    (14) expresion -> . expresion + expresion
+    (15) expresion -> . expresion - expresion
+    (16) expresion -> . expresion * expresion
+    (17) expresion -> . expresion / expresion
+    (18) expresion -> . expresion % expresion
+    (19) expresion -> . expresion < expresion
+    (20) expresion -> . expresion > expresion
+
+    IDENTIFICADOR   shift and go to state 17
+    NUM             shift and go to state 19
+    LPAREN          shift and go to state 20
+    OPERADORES_BINARIOS shift and go to state 21
+
+    expresion                      shift and go to state 42
+
+state 31
+
+    (20) expresion -> expresion > . expresion
+    (4) expresion -> . IDENTIFICADOR
+    (5) expresion -> . NUM
+    (6) expresion -> . LPAREN expresion RPAREN
+    (7) expresion -> . OPERADORES_BINARIOS expresion
+    (14) expresion -> . expresion + expresion
+    (15) expresion -> . expresion - expresion
+    (16) expresion -> . expresion * expresion
+    (17) expresion -> . expresion / expresion
+    (18) expresion -> . expresion % expresion
+    (19) expresion -> . expresion < expresion
+    (20) expresion -> . expresion > expresion
+
+    IDENTIFICADOR   shift and go to state 17
+    NUM             shift and go to state 19
+    LPAREN          shift and go to state 20
+    OPERADORES_BINARIOS shift and go to state 21
+
+    expresion                      shift and go to state 43
+
+state 32
+
+    (6) expresion -> LPAREN expresion . RPAREN
+    (14) expresion -> expresion . + expresion
+    (15) expresion -> expresion . - expresion
+    (16) expresion -> expresion . * expresion
+    (17) expresion -> expresion . / expresion
+    (18) expresion -> expresion . % expresion
+    (19) expresion -> expresion . < expresion
+    (20) expresion -> expresion . > expresion
+
+    RPAREN          shift and go to state 44
+    +               shift and go to state 25
+    -               shift and go to state 26
+    *               shift and go to state 27
+    /               shift and go to state 28
+    %               shift and go to state 29
+    <               shift and go to state 30
+    >               shift and go to state 31
+
+
+state 33
+
+    (7) expresion -> OPERADORES_BINARIOS expresion .
+    (14) expresion -> expresion . + expresion
+    (15) expresion -> expresion . - expresion
+    (16) expresion -> expresion . * expresion
+    (17) expresion -> expresion . / expresion
+    (18) expresion -> expresion . % expresion
+    (19) expresion -> expresion . < expresion
+    (20) expresion -> expresion . > expresion
+
+  ! shift/reduce conflict for + resolved as shift
+  ! shift/reduce conflict for - resolved as shift
+  ! shift/reduce conflict for * resolved as shift
+  ! shift/reduce conflict for / resolved as shift
+  ! shift/reduce conflict for % resolved as shift
+  ! shift/reduce conflict for < resolved as shift
+  ! shift/reduce conflict for > resolved as shift
+    LEE             reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .)
+    ESCRIBE         reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .)
+    SI              reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .)
+    IDENTIFICADOR   reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .)
+    FINAL           reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .)
+    SINO            reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .)
+    FINSI           reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .)
+    RPAREN          reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .)
+    +               shift and go to state 25
+    -               shift and go to state 26
+    *               shift and go to state 27
+    /               shift and go to state 28
+    %               shift and go to state 29
+    <               shift and go to state 30
+    >               shift and go to state 31
+
+  ! +               [ reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .) ]
+  ! -               [ reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .) ]
+  ! *               [ reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .) ]
+  ! /               [ reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .) ]
+  ! %               [ reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .) ]
+  ! <               [ reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .) ]
+  ! >               [ reduce using rule 7 (expresion -> OPERADORES_BINARIOS expresion .) ]
+
+
+state 34
+
+    (11) instruccion -> ESCRIBE LPAREN expresion RPAREN . PUNTO_COMA
+
+    PUNTO_COMA      shift and go to state 45
+
+
+state 35
+
+    (12) instruccion -> SI LPAREN expresion RPAREN . secuenciaInst SINO secuenciaInst FINSI
+    (13) instruccion -> SI LPAREN expresion RPAREN . secuenciaInst FINSI
+    (8) secuenciaInst -> . instruccion
+    (9) secuenciaInst -> . instruccion secuenciaInst
+    (3) instruccion -> . asignacion
+    (10) instruccion -> . LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA
+    (11) instruccion -> . ESCRIBE LPAREN expresion RPAREN PUNTO_COMA
+    (12) instruccion -> . SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI
+    (13) instruccion -> . SI LPAREN expresion RPAREN secuenciaInst FINSI
+    (2) asignacion -> . IDENTIFICADOR OPERADOR_ASIG expresion
+
+    LEE             shift and go to state 6
+    ESCRIBE         shift and go to state 8
+    SI              shift and go to state 9
+    IDENTIFICADOR   shift and go to state 7
+
+    secuenciaInst                  shift and go to state 46
+    instruccion                    shift and go to state 4
+    asignacion                     shift and go to state 5
+
+state 36
+
+    (10) instruccion -> LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA .
+
+    LEE             reduce using rule 10 (instruccion -> LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA .)
+    ESCRIBE         reduce using rule 10 (instruccion -> LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA .)
+    SI              reduce using rule 10 (instruccion -> LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA .)
+    IDENTIFICADOR   reduce using rule 10 (instruccion -> LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA .)
+    FINAL           reduce using rule 10 (instruccion -> LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA .)
+    SINO            reduce using rule 10 (instruccion -> LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA .)
+    FINSI           reduce using rule 10 (instruccion -> LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA .)
+
+
+state 37
+
+    (14) expresion -> expresion + expresion .
+    (14) expresion -> expresion . + expresion
+    (15) expresion -> expresion . - expresion
+    (16) expresion -> expresion . * expresion
+    (17) expresion -> expresion . / expresion
+    (18) expresion -> expresion . % expresion
+    (19) expresion -> expresion . < expresion
+    (20) expresion -> expresion . > expresion
+
+    +               reduce using rule 14 (expresion -> expresion + expresion .)
+    -               reduce using rule 14 (expresion -> expresion + expresion .)
+    LEE             reduce using rule 14 (expresion -> expresion + expresion .)
+    ESCRIBE         reduce using rule 14 (expresion -> expresion + expresion .)
+    SI              reduce using rule 14 (expresion -> expresion + expresion .)
+    IDENTIFICADOR   reduce using rule 14 (expresion -> expresion + expresion .)
+    FINAL           reduce using rule 14 (expresion -> expresion + expresion .)
+    SINO            reduce using rule 14 (expresion -> expresion + expresion .)
+    FINSI           reduce using rule 14 (expresion -> expresion + expresion .)
+    RPAREN          reduce using rule 14 (expresion -> expresion + expresion .)
+    *               shift and go to state 27
+    /               shift and go to state 28
+    %               shift and go to state 29
+    <               shift and go to state 30
+    >               shift and go to state 31
+
+  ! *               [ reduce using rule 14 (expresion -> expresion + expresion .) ]
+  ! /               [ reduce using rule 14 (expresion -> expresion + expresion .) ]
+  ! %               [ reduce using rule 14 (expresion -> expresion + expresion .) ]
+  ! <               [ reduce using rule 14 (expresion -> expresion + expresion .) ]
+  ! >               [ reduce using rule 14 (expresion -> expresion + expresion .) ]
+  ! +               [ shift and go to state 25 ]
+  ! -               [ shift and go to state 26 ]
+
+
+state 38
+
+    (15) expresion -> expresion - expresion .
+    (14) expresion -> expresion . + expresion
+    (15) expresion -> expresion . - expresion
+    (16) expresion -> expresion . * expresion
+    (17) expresion -> expresion . / expresion
+    (18) expresion -> expresion . % expresion
+    (19) expresion -> expresion . < expresion
+    (20) expresion -> expresion . > expresion
+
+    +               reduce using rule 15 (expresion -> expresion - expresion .)
+    -               reduce using rule 15 (expresion -> expresion - expresion .)
+    LEE             reduce using rule 15 (expresion -> expresion - expresion .)
+    ESCRIBE         reduce using rule 15 (expresion -> expresion - expresion .)
+    SI              reduce using rule 15 (expresion -> expresion - expresion .)
+    IDENTIFICADOR   reduce using rule 15 (expresion -> expresion - expresion .)
+    FINAL           reduce using rule 15 (expresion -> expresion - expresion .)
+    SINO            reduce using rule 15 (expresion -> expresion - expresion .)
+    FINSI           reduce using rule 15 (expresion -> expresion - expresion .)
+    RPAREN          reduce using rule 15 (expresion -> expresion - expresion .)
+    *               shift and go to state 27
+    /               shift and go to state 28
+    %               shift and go to state 29
+    <               shift and go to state 30
+    >               shift and go to state 31
+
+  ! *               [ reduce using rule 15 (expresion -> expresion - expresion .) ]
+  ! /               [ reduce using rule 15 (expresion -> expresion - expresion .) ]
+  ! %               [ reduce using rule 15 (expresion -> expresion - expresion .) ]
+  ! <               [ reduce using rule 15 (expresion -> expresion - expresion .) ]
+  ! >               [ reduce using rule 15 (expresion -> expresion - expresion .) ]
+  ! +               [ shift and go to state 25 ]
+  ! -               [ shift and go to state 26 ]
+
+
+state 39
+
+    (16) expresion -> expresion * expresion .
+    (14) expresion -> expresion . + expresion
+    (15) expresion -> expresion . - expresion
+    (16) expresion -> expresion . * expresion
+    (17) expresion -> expresion . / expresion
+    (18) expresion -> expresion . % expresion
+    (19) expresion -> expresion . < expresion
+    (20) expresion -> expresion . > expresion
+
+    +               reduce using rule 16 (expresion -> expresion * expresion .)
+    -               reduce using rule 16 (expresion -> expresion * expresion .)
+    *               reduce using rule 16 (expresion -> expresion * expresion .)
+    /               reduce using rule 16 (expresion -> expresion * expresion .)
+    %               reduce using rule 16 (expresion -> expresion * expresion .)
+    LEE             reduce using rule 16 (expresion -> expresion * expresion .)
+    ESCRIBE         reduce using rule 16 (expresion -> expresion * expresion .)
+    SI              reduce using rule 16 (expresion -> expresion * expresion .)
+    IDENTIFICADOR   reduce using rule 16 (expresion -> expresion * expresion .)
+    FINAL           reduce using rule 16 (expresion -> expresion * expresion .)
+    SINO            reduce using rule 16 (expresion -> expresion * expresion .)
+    FINSI           reduce using rule 16 (expresion -> expresion * expresion .)
+    RPAREN          reduce using rule 16 (expresion -> expresion * expresion .)
+    <               shift and go to state 30
+    >               shift and go to state 31
+
+  ! <               [ reduce using rule 16 (expresion -> expresion * expresion .) ]
+  ! >               [ reduce using rule 16 (expresion -> expresion * expresion .) ]
+  ! +               [ shift and go to state 25 ]
+  ! -               [ shift and go to state 26 ]
+  ! *               [ shift and go to state 27 ]
+  ! /               [ shift and go to state 28 ]
+  ! %               [ shift and go to state 29 ]
+
+
+state 40
+
+    (17) expresion -> expresion / expresion .
+    (14) expresion -> expresion . + expresion
+    (15) expresion -> expresion . - expresion
+    (16) expresion -> expresion . * expresion
+    (17) expresion -> expresion . / expresion
+    (18) expresion -> expresion . % expresion
+    (19) expresion -> expresion . < expresion
+    (20) expresion -> expresion . > expresion
+
+    +               reduce using rule 17 (expresion -> expresion / expresion .)
+    -               reduce using rule 17 (expresion -> expresion / expresion .)
+    *               reduce using rule 17 (expresion -> expresion / expresion .)
+    /               reduce using rule 17 (expresion -> expresion / expresion .)
+    %               reduce using rule 17 (expresion -> expresion / expresion .)
+    LEE             reduce using rule 17 (expresion -> expresion / expresion .)
+    ESCRIBE         reduce using rule 17 (expresion -> expresion / expresion .)
+    SI              reduce using rule 17 (expresion -> expresion / expresion .)
+    IDENTIFICADOR   reduce using rule 17 (expresion -> expresion / expresion .)
+    FINAL           reduce using rule 17 (expresion -> expresion / expresion .)
+    SINO            reduce using rule 17 (expresion -> expresion / expresion .)
+    FINSI           reduce using rule 17 (expresion -> expresion / expresion .)
+    RPAREN          reduce using rule 17 (expresion -> expresion / expresion .)
+    <               shift and go to state 30
+    >               shift and go to state 31
+
+  ! <               [ reduce using rule 17 (expresion -> expresion / expresion .) ]
+  ! >               [ reduce using rule 17 (expresion -> expresion / expresion .) ]
+  ! +               [ shift and go to state 25 ]
+  ! -               [ shift and go to state 26 ]
+  ! *               [ shift and go to state 27 ]
+  ! /               [ shift and go to state 28 ]
+  ! %               [ shift and go to state 29 ]
+
+
+state 41
+
+    (18) expresion -> expresion % expresion .
+    (14) expresion -> expresion . + expresion
+    (15) expresion -> expresion . - expresion
+    (16) expresion -> expresion . * expresion
+    (17) expresion -> expresion . / expresion
+    (18) expresion -> expresion . % expresion
+    (19) expresion -> expresion . < expresion
+    (20) expresion -> expresion . > expresion
+
+    +               reduce using rule 18 (expresion -> expresion % expresion .)
+    -               reduce using rule 18 (expresion -> expresion % expresion .)
+    *               reduce using rule 18 (expresion -> expresion % expresion .)
+    /               reduce using rule 18 (expresion -> expresion % expresion .)
+    %               reduce using rule 18 (expresion -> expresion % expresion .)
+    LEE             reduce using rule 18 (expresion -> expresion % expresion .)
+    ESCRIBE         reduce using rule 18 (expresion -> expresion % expresion .)
+    SI              reduce using rule 18 (expresion -> expresion % expresion .)
+    IDENTIFICADOR   reduce using rule 18 (expresion -> expresion % expresion .)
+    FINAL           reduce using rule 18 (expresion -> expresion % expresion .)
+    SINO            reduce using rule 18 (expresion -> expresion % expresion .)
+    FINSI           reduce using rule 18 (expresion -> expresion % expresion .)
+    RPAREN          reduce using rule 18 (expresion -> expresion % expresion .)
+    <               shift and go to state 30
+    >               shift and go to state 31
+
+  ! <               [ reduce using rule 18 (expresion -> expresion % expresion .) ]
+  ! >               [ reduce using rule 18 (expresion -> expresion % expresion .) ]
+  ! +               [ shift and go to state 25 ]
+  ! -               [ shift and go to state 26 ]
+  ! *               [ shift and go to state 27 ]
+  ! /               [ shift and go to state 28 ]
+  ! %               [ shift and go to state 29 ]
+
+
+state 42
+
+    (19) expresion -> expresion < expresion .
+    (14) expresion -> expresion . + expresion
+    (15) expresion -> expresion . - expresion
+    (16) expresion -> expresion . * expresion
+    (17) expresion -> expresion . / expresion
+    (18) expresion -> expresion . % expresion
+    (19) expresion -> expresion . < expresion
+    (20) expresion -> expresion . > expresion
+
+    +               reduce using rule 19 (expresion -> expresion < expresion .)
+    -               reduce using rule 19 (expresion -> expresion < expresion .)
+    *               reduce using rule 19 (expresion -> expresion < expresion .)
+    /               reduce using rule 19 (expresion -> expresion < expresion .)
+    %               reduce using rule 19 (expresion -> expresion < expresion .)
+    <               reduce using rule 19 (expresion -> expresion < expresion .)
+    >               reduce using rule 19 (expresion -> expresion < expresion .)
+    LEE             reduce using rule 19 (expresion -> expresion < expresion .)
+    ESCRIBE         reduce using rule 19 (expresion -> expresion < expresion .)
+    SI              reduce using rule 19 (expresion -> expresion < expresion .)
+    IDENTIFICADOR   reduce using rule 19 (expresion -> expresion < expresion .)
+    FINAL           reduce using rule 19 (expresion -> expresion < expresion .)
+    SINO            reduce using rule 19 (expresion -> expresion < expresion .)
+    FINSI           reduce using rule 19 (expresion -> expresion < expresion .)
+    RPAREN          reduce using rule 19 (expresion -> expresion < expresion .)
+
+  ! +               [ shift and go to state 25 ]
+  ! -               [ shift and go to state 26 ]
+  ! *               [ shift and go to state 27 ]
+  ! /               [ shift and go to state 28 ]
+  ! %               [ shift and go to state 29 ]
+  ! <               [ shift and go to state 30 ]
+  ! >               [ shift and go to state 31 ]
+
+
+state 43
+
+    (20) expresion -> expresion > expresion .
+    (14) expresion -> expresion . + expresion
+    (15) expresion -> expresion . - expresion
+    (16) expresion -> expresion . * expresion
+    (17) expresion -> expresion . / expresion
+    (18) expresion -> expresion . % expresion
+    (19) expresion -> expresion . < expresion
+    (20) expresion -> expresion . > expresion
+
+    +               reduce using rule 20 (expresion -> expresion > expresion .)
+    -               reduce using rule 20 (expresion -> expresion > expresion .)
+    *               reduce using rule 20 (expresion -> expresion > expresion .)
+    /               reduce using rule 20 (expresion -> expresion > expresion .)
+    %               reduce using rule 20 (expresion -> expresion > expresion .)
+    <               reduce using rule 20 (expresion -> expresion > expresion .)
+    >               reduce using rule 20 (expresion -> expresion > expresion .)
+    LEE             reduce using rule 20 (expresion -> expresion > expresion .)
+    ESCRIBE         reduce using rule 20 (expresion -> expresion > expresion .)
+    SI              reduce using rule 20 (expresion -> expresion > expresion .)
+    IDENTIFICADOR   reduce using rule 20 (expresion -> expresion > expresion .)
+    FINAL           reduce using rule 20 (expresion -> expresion > expresion .)
+    SINO            reduce using rule 20 (expresion -> expresion > expresion .)
+    FINSI           reduce using rule 20 (expresion -> expresion > expresion .)
+    RPAREN          reduce using rule 20 (expresion -> expresion > expresion .)
+
+  ! +               [ shift and go to state 25 ]
+  ! -               [ shift and go to state 26 ]
+  ! *               [ shift and go to state 27 ]
+  ! /               [ shift and go to state 28 ]
+  ! %               [ shift and go to state 29 ]
+  ! <               [ shift and go to state 30 ]
+  ! >               [ shift and go to state 31 ]
+
+
+state 44
+
+    (6) expresion -> LPAREN expresion RPAREN .
+
+    +               reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    -               reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    *               reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    /               reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    %               reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    <               reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    >               reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    LEE             reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    ESCRIBE         reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    SI              reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    IDENTIFICADOR   reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    FINAL           reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    SINO            reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    FINSI           reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+    RPAREN          reduce using rule 6 (expresion -> LPAREN expresion RPAREN .)
+
+
+state 45
+
+    (11) instruccion -> ESCRIBE LPAREN expresion RPAREN PUNTO_COMA .
+
+    LEE             reduce using rule 11 (instruccion -> ESCRIBE LPAREN expresion RPAREN PUNTO_COMA .)
+    ESCRIBE         reduce using rule 11 (instruccion -> ESCRIBE LPAREN expresion RPAREN PUNTO_COMA .)
+    SI              reduce using rule 11 (instruccion -> ESCRIBE LPAREN expresion RPAREN PUNTO_COMA .)
+    IDENTIFICADOR   reduce using rule 11 (instruccion -> ESCRIBE LPAREN expresion RPAREN PUNTO_COMA .)
+    FINAL           reduce using rule 11 (instruccion -> ESCRIBE LPAREN expresion RPAREN PUNTO_COMA .)
+    SINO            reduce using rule 11 (instruccion -> ESCRIBE LPAREN expresion RPAREN PUNTO_COMA .)
+    FINSI           reduce using rule 11 (instruccion -> ESCRIBE LPAREN expresion RPAREN PUNTO_COMA .)
+
+
+state 46
+
+    (12) instruccion -> SI LPAREN expresion RPAREN secuenciaInst . SINO secuenciaInst FINSI
+    (13) instruccion -> SI LPAREN expresion RPAREN secuenciaInst . FINSI
+
+    SINO            shift and go to state 47
+    FINSI           shift and go to state 48
+
+
+state 47
+
+    (12) instruccion -> SI LPAREN expresion RPAREN secuenciaInst SINO . secuenciaInst FINSI
+    (8) secuenciaInst -> . instruccion
+    (9) secuenciaInst -> . instruccion secuenciaInst
+    (3) instruccion -> . asignacion
+    (10) instruccion -> . LEE LPAREN IDENTIFICADOR RPAREN PUNTO_COMA
+    (11) instruccion -> . ESCRIBE LPAREN expresion RPAREN PUNTO_COMA
+    (12) instruccion -> . SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI
+    (13) instruccion -> . SI LPAREN expresion RPAREN secuenciaInst FINSI
+    (2) asignacion -> . IDENTIFICADOR OPERADOR_ASIG expresion
+
+    LEE             shift and go to state 6
+    ESCRIBE         shift and go to state 8
+    SI              shift and go to state 9
+    IDENTIFICADOR   shift and go to state 7
+
+    secuenciaInst                  shift and go to state 49
+    instruccion                    shift and go to state 4
+    asignacion                     shift and go to state 5
+
+state 48
+
+    (13) instruccion -> SI LPAREN expresion RPAREN secuenciaInst FINSI .
+
+    LEE             reduce using rule 13 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst FINSI .)
+    ESCRIBE         reduce using rule 13 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst FINSI .)
+    SI              reduce using rule 13 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst FINSI .)
+    IDENTIFICADOR   reduce using rule 13 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst FINSI .)
+    FINAL           reduce using rule 13 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst FINSI .)
+    SINO            reduce using rule 13 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst FINSI .)
+    FINSI           reduce using rule 13 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst FINSI .)
+
+
+state 49
+
+    (12) instruccion -> SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst . FINSI
+
+    FINSI           shift and go to state 50
+
+
+state 50
+
+    (12) instruccion -> SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI .
+
+    LEE             reduce using rule 12 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI .)
+    ESCRIBE         reduce using rule 12 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI .)
+    SI              reduce using rule 12 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI .)
+    IDENTIFICADOR   reduce using rule 12 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI .)
+    FINAL           reduce using rule 12 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI .)
+    SINO            reduce using rule 12 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI .)
+    FINSI           reduce using rule 12 (instruccion -> SI LPAREN expresion RPAREN secuenciaInst SINO secuenciaInst FINSI .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for + in state 33 resolved as shift
+WARNING: shift/reduce conflict for - in state 33 resolved as shift
+WARNING: shift/reduce conflict for * in state 33 resolved as shift
+WARNING: shift/reduce conflict for / in state 33 resolved as shift
+WARNING: shift/reduce conflict for % in state 33 resolved as shift
+WARNING: shift/reduce conflict for < in state 33 resolved as shift
+WARNING: shift/reduce conflict for > in state 33 resolved as shift
