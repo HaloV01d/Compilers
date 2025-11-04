@@ -18,6 +18,7 @@ tokens = ( # Lista de tokens
     'INICIO', 'FINAL', 'SINO', 'FINSI',
     'SI', 'LEE', 'ESCRIBE',
     'OPERADOR_ASIG', 'OPERADORES_BINARIOS',
+    'MENOR_IGUAL', 'MAYOR_IGUAL', 'IGUAL_IGUAL', 'DIFERENTE',
     'NUM', 'IDENTIFICADOR',
     'LPAREN','RPAREN', 'PUNTO_COMA',
 )
@@ -29,6 +30,10 @@ t_OPERADORES_BINARIOS = r'<=|>=|==|<>' # Operadores binarios
 t_LPAREN = r'\(' # Paréntesis izquierdo
 t_RPAREN = r'\)' # Paréntesis derecho
 t_PUNTO_COMA = r';' # Punto y coma
+t_MENOR_IGUAL = r'<='
+t_MAYOR_IGUAL = r'>='
+t_IGUAL_IGUAL = r'=='
+t_DIFERENTE = r'<>'
 
 def t_NUM(t): # Número entero
     r'\d+'

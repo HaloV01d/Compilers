@@ -63,28 +63,41 @@ def p_instruccion_si_con_sino(p): # If instruction with else rule
     'instruccion : SI LPAREN expresion RPAREN secuenciaInst FINSI'
     p[0] = ('si', p[3], p[5], None)
 
-def p_operadores_binarios(p): # Binary expression rule
+def p_operadores_binarios(p):
     '''expresion : expresion '+' expresion
-                | expresion '-' expresion
-                | expresion '*' expresion
-                | expresion '/' expresion
-                | expresion '%' expresion
-                | expresion '<' expresion
-                | expresion '>' expresion'''
-    if p[2] == '+':
+                 | expresion '-' expresion
+                 | expresion '*' expresion
+                 | expresion '/' expresion
+                 | expresion '%' expresion
+                 | expresion '<' expresion
+                 | expresion '>' expresion
+                 | expresion MENOR_IGUAL expresion
+                 | expresion MAYOR_IGUAL expresion
+                 | expresion IGUAL_IGUAL expresion
+                 | expresion DIFERENTE expresion'''
+    op = p[2]
+    if op == '+':
         p[0] = ('suma', p[1], p[3])
-    elif p[2] == '-':
+    elif op == '-':
         p[0] = ('resta', p[1], p[3])
-    elif p[2] == '*':
+    elif op == '*':
         p[0] = ('multiplicacion', p[1], p[3])
-    elif p[2] == '/':
+    elif op == '/':
         p[0] = ('division', p[1], p[3])
-    elif p[2] == '%':
+    elif op == '%':
         p[0] = ('modulo', p[1], p[3])
-    elif p[2] == '<':
+    elif op == '<':
         p[0] = ('menor_que', p[1], p[3])
-    elif p[2] == '>':
+    elif op == '>':
         p[0] = ('mayor_que', p[1], p[3])
+    elif op == '<=':
+        p[0] = ('menor_igual', p[1], p[3])
+    elif op == '>=':
+        p[0] = ('mayor_igual', p[1], p[3])
+    elif op == '==':
+        p[0] = ('igual_igual', p[1], p[3])
+    elif op == '<>':
+        p[0] = ('diferente', p[1], p[3])
 
 def p_error(p): # Error handling rule
     if p:
