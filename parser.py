@@ -1,6 +1,10 @@
 from ply import yacc
 from lexer import lexer, tokens
 
+# ============================
+#       ANALIZADOR Sintáctico
+# ============================
+
 # Define the grammar rules
 def p_programa(p): # Program rule
     'programa : INICIO secuenciaInst FINAL'
@@ -107,9 +111,13 @@ def p_error(p): # Error handling rule
 
 parser = yacc.yacc() # Build the parser
 
+
+# =========================
+#     PRUEBA RÁPIDA
+# =========================
 if __name__ == '__main__': # Test the parser
-    ruta = 'C:\\Users\\Alondra Soto\\OneDrive\\Documents\\Development\\Compilers\\Test\\Caso_Correcto1.txt'
-    with open(ruta, 'r') as archivo:
+    ruta = 'C:\\Users\\Alondra Soto\\OneDrive\\Documents\\Development\\Compilers\\Test\\Caso_Incorrecto1.txt'
+    with open(ruta, 'r', encoding='Utf-8', errors='replace') as archivo:
         datos = archivo.read()
     result = parser.parse(datos) # Parse the input data
     print("=== RESULTADO DEL PARSEO ===")
