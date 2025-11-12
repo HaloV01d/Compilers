@@ -10,11 +10,12 @@ def p_programa(p): # Program rule
     'programa : INICIO secuenciaInst FINAL'
     p[0] = ('programa', p[2])
 
-precedence = ( # Operator precedence
+precedence = (
     ('left', '+', '-'),
     ('left', '*', '/', '%'),
-    ('nonassoc', '<', '>')
+    ('nonassoc', '<', '>', 'MENOR_IGUAL', 'MAYOR_IGUAL', 'IGUAL_IGUAL', 'DIFERENTE')
 )
+
 
 def p_asignacion(p): # Assignment rule
     'asignacion : IDENTIFICADOR OPERADOR_ASIG expresion'
@@ -103,9 +104,10 @@ def p_operadores_binarios(p):
     elif op == '<>':
         p[0] = ('diferente', p[1], p[3])
 
-def p_error(p): # Error handling rule
+def p_error(p):
     if p:
         print(f"\033[91mError de sintaxis en el token '{p.value}' en la línea {p.lineno}\033[0m")
+        print(f"\033[91mToken completo:", p, "\033[0m")
     else:
         print(f"\033[91mError de sintaxis al final del archivo\033[0m")
 
@@ -116,7 +118,7 @@ parser = yacc.yacc() # Build the parser
 #     PRUEBA RÁPIDA
 # =========================
 if __name__ == '__main__': # Test the parser
-    ruta = 'C:\\Users\\Alondra Soto\\OneDrive\\Documents\\Development\\Compilers\\Test\\Caso_Incorrecto1.txt'
+    ruta = 'C:\\Users\\Alondra Soto\\OneDrive\\Documents\\Development\\Compilers\\Test\\Caso_Incorrecto2.txt'
     with open(ruta, 'r', encoding='Utf-8', errors='replace') as archivo:
         datos = archivo.read()
     result = parser.parse(datos) # Parse the input data

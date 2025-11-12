@@ -922,10 +922,6 @@ state 41
 
     +               reduce using rule 14 (expresion -> expresion + expresion .)
     -               reduce using rule 14 (expresion -> expresion + expresion .)
-    MENOR_IGUAL     reduce using rule 14 (expresion -> expresion + expresion .)
-    MAYOR_IGUAL     reduce using rule 14 (expresion -> expresion + expresion .)
-    IGUAL_IGUAL     reduce using rule 14 (expresion -> expresion + expresion .)
-    DIFERENTE       reduce using rule 14 (expresion -> expresion + expresion .)
     LEE             reduce using rule 14 (expresion -> expresion + expresion .)
     ESCRIBE         reduce using rule 14 (expresion -> expresion + expresion .)
     SI              reduce using rule 14 (expresion -> expresion + expresion .)
@@ -939,18 +935,22 @@ state 41
     %               shift and go to state 29
     <               shift and go to state 30
     >               shift and go to state 31
+    MENOR_IGUAL     shift and go to state 32
+    MAYOR_IGUAL     shift and go to state 33
+    IGUAL_IGUAL     shift and go to state 34
+    DIFERENTE       shift and go to state 35
 
   ! *               [ reduce using rule 14 (expresion -> expresion + expresion .) ]
   ! /               [ reduce using rule 14 (expresion -> expresion + expresion .) ]
   ! %               [ reduce using rule 14 (expresion -> expresion + expresion .) ]
   ! <               [ reduce using rule 14 (expresion -> expresion + expresion .) ]
   ! >               [ reduce using rule 14 (expresion -> expresion + expresion .) ]
+  ! MENOR_IGUAL     [ reduce using rule 14 (expresion -> expresion + expresion .) ]
+  ! MAYOR_IGUAL     [ reduce using rule 14 (expresion -> expresion + expresion .) ]
+  ! IGUAL_IGUAL     [ reduce using rule 14 (expresion -> expresion + expresion .) ]
+  ! DIFERENTE       [ reduce using rule 14 (expresion -> expresion + expresion .) ]
   ! +               [ shift and go to state 25 ]
   ! -               [ shift and go to state 26 ]
-  ! MENOR_IGUAL     [ shift and go to state 32 ]
-  ! MAYOR_IGUAL     [ shift and go to state 33 ]
-  ! IGUAL_IGUAL     [ shift and go to state 34 ]
-  ! DIFERENTE       [ shift and go to state 35 ]
 
 
 state 42
@@ -970,10 +970,6 @@ state 42
 
     +               reduce using rule 15 (expresion -> expresion - expresion .)
     -               reduce using rule 15 (expresion -> expresion - expresion .)
-    MENOR_IGUAL     reduce using rule 15 (expresion -> expresion - expresion .)
-    MAYOR_IGUAL     reduce using rule 15 (expresion -> expresion - expresion .)
-    IGUAL_IGUAL     reduce using rule 15 (expresion -> expresion - expresion .)
-    DIFERENTE       reduce using rule 15 (expresion -> expresion - expresion .)
     LEE             reduce using rule 15 (expresion -> expresion - expresion .)
     ESCRIBE         reduce using rule 15 (expresion -> expresion - expresion .)
     SI              reduce using rule 15 (expresion -> expresion - expresion .)
@@ -987,18 +983,22 @@ state 42
     %               shift and go to state 29
     <               shift and go to state 30
     >               shift and go to state 31
+    MENOR_IGUAL     shift and go to state 32
+    MAYOR_IGUAL     shift and go to state 33
+    IGUAL_IGUAL     shift and go to state 34
+    DIFERENTE       shift and go to state 35
 
   ! *               [ reduce using rule 15 (expresion -> expresion - expresion .) ]
   ! /               [ reduce using rule 15 (expresion -> expresion - expresion .) ]
   ! %               [ reduce using rule 15 (expresion -> expresion - expresion .) ]
   ! <               [ reduce using rule 15 (expresion -> expresion - expresion .) ]
   ! >               [ reduce using rule 15 (expresion -> expresion - expresion .) ]
+  ! MENOR_IGUAL     [ reduce using rule 15 (expresion -> expresion - expresion .) ]
+  ! MAYOR_IGUAL     [ reduce using rule 15 (expresion -> expresion - expresion .) ]
+  ! IGUAL_IGUAL     [ reduce using rule 15 (expresion -> expresion - expresion .) ]
+  ! DIFERENTE       [ reduce using rule 15 (expresion -> expresion - expresion .) ]
   ! +               [ shift and go to state 25 ]
   ! -               [ shift and go to state 26 ]
-  ! MENOR_IGUAL     [ shift and go to state 32 ]
-  ! MAYOR_IGUAL     [ shift and go to state 33 ]
-  ! IGUAL_IGUAL     [ shift and go to state 34 ]
-  ! DIFERENTE       [ shift and go to state 35 ]
 
 
 state 43
@@ -1021,10 +1021,6 @@ state 43
     *               reduce using rule 16 (expresion -> expresion * expresion .)
     /               reduce using rule 16 (expresion -> expresion * expresion .)
     %               reduce using rule 16 (expresion -> expresion * expresion .)
-    MENOR_IGUAL     reduce using rule 16 (expresion -> expresion * expresion .)
-    MAYOR_IGUAL     reduce using rule 16 (expresion -> expresion * expresion .)
-    IGUAL_IGUAL     reduce using rule 16 (expresion -> expresion * expresion .)
-    DIFERENTE       reduce using rule 16 (expresion -> expresion * expresion .)
     LEE             reduce using rule 16 (expresion -> expresion * expresion .)
     ESCRIBE         reduce using rule 16 (expresion -> expresion * expresion .)
     SI              reduce using rule 16 (expresion -> expresion * expresion .)
@@ -1035,18 +1031,22 @@ state 43
     RPAREN          reduce using rule 16 (expresion -> expresion * expresion .)
     <               shift and go to state 30
     >               shift and go to state 31
+    MENOR_IGUAL     shift and go to state 32
+    MAYOR_IGUAL     shift and go to state 33
+    IGUAL_IGUAL     shift and go to state 34
+    DIFERENTE       shift and go to state 35
 
   ! <               [ reduce using rule 16 (expresion -> expresion * expresion .) ]
   ! >               [ reduce using rule 16 (expresion -> expresion * expresion .) ]
+  ! MENOR_IGUAL     [ reduce using rule 16 (expresion -> expresion * expresion .) ]
+  ! MAYOR_IGUAL     [ reduce using rule 16 (expresion -> expresion * expresion .) ]
+  ! IGUAL_IGUAL     [ reduce using rule 16 (expresion -> expresion * expresion .) ]
+  ! DIFERENTE       [ reduce using rule 16 (expresion -> expresion * expresion .) ]
   ! +               [ shift and go to state 25 ]
   ! -               [ shift and go to state 26 ]
   ! *               [ shift and go to state 27 ]
   ! /               [ shift and go to state 28 ]
   ! %               [ shift and go to state 29 ]
-  ! MENOR_IGUAL     [ shift and go to state 32 ]
-  ! MAYOR_IGUAL     [ shift and go to state 33 ]
-  ! IGUAL_IGUAL     [ shift and go to state 34 ]
-  ! DIFERENTE       [ shift and go to state 35 ]
 
 
 state 44
@@ -1069,10 +1069,6 @@ state 44
     *               reduce using rule 17 (expresion -> expresion / expresion .)
     /               reduce using rule 17 (expresion -> expresion / expresion .)
     %               reduce using rule 17 (expresion -> expresion / expresion .)
-    MENOR_IGUAL     reduce using rule 17 (expresion -> expresion / expresion .)
-    MAYOR_IGUAL     reduce using rule 17 (expresion -> expresion / expresion .)
-    IGUAL_IGUAL     reduce using rule 17 (expresion -> expresion / expresion .)
-    DIFERENTE       reduce using rule 17 (expresion -> expresion / expresion .)
     LEE             reduce using rule 17 (expresion -> expresion / expresion .)
     ESCRIBE         reduce using rule 17 (expresion -> expresion / expresion .)
     SI              reduce using rule 17 (expresion -> expresion / expresion .)
@@ -1083,18 +1079,22 @@ state 44
     RPAREN          reduce using rule 17 (expresion -> expresion / expresion .)
     <               shift and go to state 30
     >               shift and go to state 31
+    MENOR_IGUAL     shift and go to state 32
+    MAYOR_IGUAL     shift and go to state 33
+    IGUAL_IGUAL     shift and go to state 34
+    DIFERENTE       shift and go to state 35
 
   ! <               [ reduce using rule 17 (expresion -> expresion / expresion .) ]
   ! >               [ reduce using rule 17 (expresion -> expresion / expresion .) ]
+  ! MENOR_IGUAL     [ reduce using rule 17 (expresion -> expresion / expresion .) ]
+  ! MAYOR_IGUAL     [ reduce using rule 17 (expresion -> expresion / expresion .) ]
+  ! IGUAL_IGUAL     [ reduce using rule 17 (expresion -> expresion / expresion .) ]
+  ! DIFERENTE       [ reduce using rule 17 (expresion -> expresion / expresion .) ]
   ! +               [ shift and go to state 25 ]
   ! -               [ shift and go to state 26 ]
   ! *               [ shift and go to state 27 ]
   ! /               [ shift and go to state 28 ]
   ! %               [ shift and go to state 29 ]
-  ! MENOR_IGUAL     [ shift and go to state 32 ]
-  ! MAYOR_IGUAL     [ shift and go to state 33 ]
-  ! IGUAL_IGUAL     [ shift and go to state 34 ]
-  ! DIFERENTE       [ shift and go to state 35 ]
 
 
 state 45
@@ -1117,10 +1117,6 @@ state 45
     *               reduce using rule 18 (expresion -> expresion % expresion .)
     /               reduce using rule 18 (expresion -> expresion % expresion .)
     %               reduce using rule 18 (expresion -> expresion % expresion .)
-    MENOR_IGUAL     reduce using rule 18 (expresion -> expresion % expresion .)
-    MAYOR_IGUAL     reduce using rule 18 (expresion -> expresion % expresion .)
-    IGUAL_IGUAL     reduce using rule 18 (expresion -> expresion % expresion .)
-    DIFERENTE       reduce using rule 18 (expresion -> expresion % expresion .)
     LEE             reduce using rule 18 (expresion -> expresion % expresion .)
     ESCRIBE         reduce using rule 18 (expresion -> expresion % expresion .)
     SI              reduce using rule 18 (expresion -> expresion % expresion .)
@@ -1131,18 +1127,22 @@ state 45
     RPAREN          reduce using rule 18 (expresion -> expresion % expresion .)
     <               shift and go to state 30
     >               shift and go to state 31
+    MENOR_IGUAL     shift and go to state 32
+    MAYOR_IGUAL     shift and go to state 33
+    IGUAL_IGUAL     shift and go to state 34
+    DIFERENTE       shift and go to state 35
 
   ! <               [ reduce using rule 18 (expresion -> expresion % expresion .) ]
   ! >               [ reduce using rule 18 (expresion -> expresion % expresion .) ]
+  ! MENOR_IGUAL     [ reduce using rule 18 (expresion -> expresion % expresion .) ]
+  ! MAYOR_IGUAL     [ reduce using rule 18 (expresion -> expresion % expresion .) ]
+  ! IGUAL_IGUAL     [ reduce using rule 18 (expresion -> expresion % expresion .) ]
+  ! DIFERENTE       [ reduce using rule 18 (expresion -> expresion % expresion .) ]
   ! +               [ shift and go to state 25 ]
   ! -               [ shift and go to state 26 ]
   ! *               [ shift and go to state 27 ]
   ! /               [ shift and go to state 28 ]
   ! %               [ shift and go to state 29 ]
-  ! MENOR_IGUAL     [ shift and go to state 32 ]
-  ! MAYOR_IGUAL     [ shift and go to state 33 ]
-  ! IGUAL_IGUAL     [ shift and go to state 34 ]
-  ! DIFERENTE       [ shift and go to state 35 ]
 
 
 state 46
@@ -1256,17 +1256,17 @@ state 48
     (23) expresion -> expresion . IGUAL_IGUAL expresion
     (24) expresion -> expresion . DIFERENTE expresion
 
-  ! shift/reduce conflict for + resolved as shift
-  ! shift/reduce conflict for - resolved as shift
-  ! shift/reduce conflict for * resolved as shift
-  ! shift/reduce conflict for / resolved as shift
-  ! shift/reduce conflict for % resolved as shift
-  ! shift/reduce conflict for < resolved as shift
-  ! shift/reduce conflict for > resolved as shift
-  ! shift/reduce conflict for MENOR_IGUAL resolved as shift
-  ! shift/reduce conflict for MAYOR_IGUAL resolved as shift
-  ! shift/reduce conflict for IGUAL_IGUAL resolved as shift
-  ! shift/reduce conflict for DIFERENTE resolved as shift
+    +               reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
+    -               reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
+    *               reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
+    /               reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
+    %               reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
+    <               reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
+    >               reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
+    MENOR_IGUAL     reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
+    MAYOR_IGUAL     reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
+    IGUAL_IGUAL     reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
+    DIFERENTE       reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
     LEE             reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
     ESCRIBE         reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
     SI              reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
@@ -1275,29 +1275,18 @@ state 48
     SINO            reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
     FINSI           reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
     RPAREN          reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .)
-    +               shift and go to state 25
-    -               shift and go to state 26
-    *               shift and go to state 27
-    /               shift and go to state 28
-    %               shift and go to state 29
-    <               shift and go to state 30
-    >               shift and go to state 31
-    MENOR_IGUAL     shift and go to state 32
-    MAYOR_IGUAL     shift and go to state 33
-    IGUAL_IGUAL     shift and go to state 34
-    DIFERENTE       shift and go to state 35
 
-  ! +               [ reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .) ]
-  ! -               [ reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .) ]
-  ! *               [ reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .) ]
-  ! /               [ reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .) ]
-  ! %               [ reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .) ]
-  ! <               [ reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .) ]
-  ! >               [ reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .) ]
-  ! MENOR_IGUAL     [ reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .) ]
-  ! MAYOR_IGUAL     [ reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .) ]
-  ! IGUAL_IGUAL     [ reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .) ]
-  ! DIFERENTE       [ reduce using rule 21 (expresion -> expresion MENOR_IGUAL expresion .) ]
+  ! +               [ shift and go to state 25 ]
+  ! -               [ shift and go to state 26 ]
+  ! *               [ shift and go to state 27 ]
+  ! /               [ shift and go to state 28 ]
+  ! %               [ shift and go to state 29 ]
+  ! <               [ shift and go to state 30 ]
+  ! >               [ shift and go to state 31 ]
+  ! MENOR_IGUAL     [ shift and go to state 32 ]
+  ! MAYOR_IGUAL     [ shift and go to state 33 ]
+  ! IGUAL_IGUAL     [ shift and go to state 34 ]
+  ! DIFERENTE       [ shift and go to state 35 ]
 
 
 state 49
@@ -1315,17 +1304,17 @@ state 49
     (23) expresion -> expresion . IGUAL_IGUAL expresion
     (24) expresion -> expresion . DIFERENTE expresion
 
-  ! shift/reduce conflict for + resolved as shift
-  ! shift/reduce conflict for - resolved as shift
-  ! shift/reduce conflict for * resolved as shift
-  ! shift/reduce conflict for / resolved as shift
-  ! shift/reduce conflict for % resolved as shift
-  ! shift/reduce conflict for < resolved as shift
-  ! shift/reduce conflict for > resolved as shift
-  ! shift/reduce conflict for MENOR_IGUAL resolved as shift
-  ! shift/reduce conflict for MAYOR_IGUAL resolved as shift
-  ! shift/reduce conflict for IGUAL_IGUAL resolved as shift
-  ! shift/reduce conflict for DIFERENTE resolved as shift
+    +               reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
+    -               reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
+    *               reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
+    /               reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
+    %               reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
+    <               reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
+    >               reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
+    MENOR_IGUAL     reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
+    MAYOR_IGUAL     reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
+    IGUAL_IGUAL     reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
+    DIFERENTE       reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
     LEE             reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
     ESCRIBE         reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
     SI              reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
@@ -1334,29 +1323,18 @@ state 49
     SINO            reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
     FINSI           reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
     RPAREN          reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .)
-    +               shift and go to state 25
-    -               shift and go to state 26
-    *               shift and go to state 27
-    /               shift and go to state 28
-    %               shift and go to state 29
-    <               shift and go to state 30
-    >               shift and go to state 31
-    MENOR_IGUAL     shift and go to state 32
-    MAYOR_IGUAL     shift and go to state 33
-    IGUAL_IGUAL     shift and go to state 34
-    DIFERENTE       shift and go to state 35
 
-  ! +               [ reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .) ]
-  ! -               [ reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .) ]
-  ! *               [ reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .) ]
-  ! /               [ reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .) ]
-  ! %               [ reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .) ]
-  ! <               [ reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .) ]
-  ! >               [ reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .) ]
-  ! MENOR_IGUAL     [ reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .) ]
-  ! MAYOR_IGUAL     [ reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .) ]
-  ! IGUAL_IGUAL     [ reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .) ]
-  ! DIFERENTE       [ reduce using rule 22 (expresion -> expresion MAYOR_IGUAL expresion .) ]
+  ! +               [ shift and go to state 25 ]
+  ! -               [ shift and go to state 26 ]
+  ! *               [ shift and go to state 27 ]
+  ! /               [ shift and go to state 28 ]
+  ! %               [ shift and go to state 29 ]
+  ! <               [ shift and go to state 30 ]
+  ! >               [ shift and go to state 31 ]
+  ! MENOR_IGUAL     [ shift and go to state 32 ]
+  ! MAYOR_IGUAL     [ shift and go to state 33 ]
+  ! IGUAL_IGUAL     [ shift and go to state 34 ]
+  ! DIFERENTE       [ shift and go to state 35 ]
 
 
 state 50
@@ -1374,17 +1352,17 @@ state 50
     (23) expresion -> expresion . IGUAL_IGUAL expresion
     (24) expresion -> expresion . DIFERENTE expresion
 
-  ! shift/reduce conflict for + resolved as shift
-  ! shift/reduce conflict for - resolved as shift
-  ! shift/reduce conflict for * resolved as shift
-  ! shift/reduce conflict for / resolved as shift
-  ! shift/reduce conflict for % resolved as shift
-  ! shift/reduce conflict for < resolved as shift
-  ! shift/reduce conflict for > resolved as shift
-  ! shift/reduce conflict for MENOR_IGUAL resolved as shift
-  ! shift/reduce conflict for MAYOR_IGUAL resolved as shift
-  ! shift/reduce conflict for IGUAL_IGUAL resolved as shift
-  ! shift/reduce conflict for DIFERENTE resolved as shift
+    +               reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
+    -               reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
+    *               reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
+    /               reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
+    %               reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
+    <               reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
+    >               reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
+    MENOR_IGUAL     reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
+    MAYOR_IGUAL     reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
+    IGUAL_IGUAL     reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
+    DIFERENTE       reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
     LEE             reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
     ESCRIBE         reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
     SI              reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
@@ -1393,29 +1371,18 @@ state 50
     SINO            reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
     FINSI           reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
     RPAREN          reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .)
-    +               shift and go to state 25
-    -               shift and go to state 26
-    *               shift and go to state 27
-    /               shift and go to state 28
-    %               shift and go to state 29
-    <               shift and go to state 30
-    >               shift and go to state 31
-    MENOR_IGUAL     shift and go to state 32
-    MAYOR_IGUAL     shift and go to state 33
-    IGUAL_IGUAL     shift and go to state 34
-    DIFERENTE       shift and go to state 35
 
-  ! +               [ reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .) ]
-  ! -               [ reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .) ]
-  ! *               [ reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .) ]
-  ! /               [ reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .) ]
-  ! %               [ reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .) ]
-  ! <               [ reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .) ]
-  ! >               [ reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .) ]
-  ! MENOR_IGUAL     [ reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .) ]
-  ! MAYOR_IGUAL     [ reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .) ]
-  ! IGUAL_IGUAL     [ reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .) ]
-  ! DIFERENTE       [ reduce using rule 23 (expresion -> expresion IGUAL_IGUAL expresion .) ]
+  ! +               [ shift and go to state 25 ]
+  ! -               [ shift and go to state 26 ]
+  ! *               [ shift and go to state 27 ]
+  ! /               [ shift and go to state 28 ]
+  ! %               [ shift and go to state 29 ]
+  ! <               [ shift and go to state 30 ]
+  ! >               [ shift and go to state 31 ]
+  ! MENOR_IGUAL     [ shift and go to state 32 ]
+  ! MAYOR_IGUAL     [ shift and go to state 33 ]
+  ! IGUAL_IGUAL     [ shift and go to state 34 ]
+  ! DIFERENTE       [ shift and go to state 35 ]
 
 
 state 51
@@ -1433,17 +1400,17 @@ state 51
     (23) expresion -> expresion . IGUAL_IGUAL expresion
     (24) expresion -> expresion . DIFERENTE expresion
 
-  ! shift/reduce conflict for + resolved as shift
-  ! shift/reduce conflict for - resolved as shift
-  ! shift/reduce conflict for * resolved as shift
-  ! shift/reduce conflict for / resolved as shift
-  ! shift/reduce conflict for % resolved as shift
-  ! shift/reduce conflict for < resolved as shift
-  ! shift/reduce conflict for > resolved as shift
-  ! shift/reduce conflict for MENOR_IGUAL resolved as shift
-  ! shift/reduce conflict for MAYOR_IGUAL resolved as shift
-  ! shift/reduce conflict for IGUAL_IGUAL resolved as shift
-  ! shift/reduce conflict for DIFERENTE resolved as shift
+    +               reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
+    -               reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
+    *               reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
+    /               reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
+    %               reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
+    <               reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
+    >               reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
+    MENOR_IGUAL     reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
+    MAYOR_IGUAL     reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
+    IGUAL_IGUAL     reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
+    DIFERENTE       reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
     LEE             reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
     ESCRIBE         reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
     SI              reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
@@ -1452,29 +1419,18 @@ state 51
     SINO            reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
     FINSI           reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
     RPAREN          reduce using rule 24 (expresion -> expresion DIFERENTE expresion .)
-    +               shift and go to state 25
-    -               shift and go to state 26
-    *               shift and go to state 27
-    /               shift and go to state 28
-    %               shift and go to state 29
-    <               shift and go to state 30
-    >               shift and go to state 31
-    MENOR_IGUAL     shift and go to state 32
-    MAYOR_IGUAL     shift and go to state 33
-    IGUAL_IGUAL     shift and go to state 34
-    DIFERENTE       shift and go to state 35
 
-  ! +               [ reduce using rule 24 (expresion -> expresion DIFERENTE expresion .) ]
-  ! -               [ reduce using rule 24 (expresion -> expresion DIFERENTE expresion .) ]
-  ! *               [ reduce using rule 24 (expresion -> expresion DIFERENTE expresion .) ]
-  ! /               [ reduce using rule 24 (expresion -> expresion DIFERENTE expresion .) ]
-  ! %               [ reduce using rule 24 (expresion -> expresion DIFERENTE expresion .) ]
-  ! <               [ reduce using rule 24 (expresion -> expresion DIFERENTE expresion .) ]
-  ! >               [ reduce using rule 24 (expresion -> expresion DIFERENTE expresion .) ]
-  ! MENOR_IGUAL     [ reduce using rule 24 (expresion -> expresion DIFERENTE expresion .) ]
-  ! MAYOR_IGUAL     [ reduce using rule 24 (expresion -> expresion DIFERENTE expresion .) ]
-  ! IGUAL_IGUAL     [ reduce using rule 24 (expresion -> expresion DIFERENTE expresion .) ]
-  ! DIFERENTE       [ reduce using rule 24 (expresion -> expresion DIFERENTE expresion .) ]
+  ! +               [ shift and go to state 25 ]
+  ! -               [ shift and go to state 26 ]
+  ! *               [ shift and go to state 27 ]
+  ! /               [ shift and go to state 28 ]
+  ! %               [ shift and go to state 29 ]
+  ! <               [ shift and go to state 30 ]
+  ! >               [ shift and go to state 31 ]
+  ! MENOR_IGUAL     [ shift and go to state 32 ]
+  ! MAYOR_IGUAL     [ shift and go to state 33 ]
+  ! IGUAL_IGUAL     [ shift and go to state 34 ]
+  ! DIFERENTE       [ shift and go to state 35 ]
 
 
 state 52
@@ -1591,47 +1547,3 @@ WARNING: shift/reduce conflict for MENOR_IGUAL in state 37 resolved as shift
 WARNING: shift/reduce conflict for MAYOR_IGUAL in state 37 resolved as shift
 WARNING: shift/reduce conflict for IGUAL_IGUAL in state 37 resolved as shift
 WARNING: shift/reduce conflict for DIFERENTE in state 37 resolved as shift
-WARNING: shift/reduce conflict for + in state 48 resolved as shift
-WARNING: shift/reduce conflict for - in state 48 resolved as shift
-WARNING: shift/reduce conflict for * in state 48 resolved as shift
-WARNING: shift/reduce conflict for / in state 48 resolved as shift
-WARNING: shift/reduce conflict for % in state 48 resolved as shift
-WARNING: shift/reduce conflict for < in state 48 resolved as shift
-WARNING: shift/reduce conflict for > in state 48 resolved as shift
-WARNING: shift/reduce conflict for MENOR_IGUAL in state 48 resolved as shift
-WARNING: shift/reduce conflict for MAYOR_IGUAL in state 48 resolved as shift
-WARNING: shift/reduce conflict for IGUAL_IGUAL in state 48 resolved as shift
-WARNING: shift/reduce conflict for DIFERENTE in state 48 resolved as shift
-WARNING: shift/reduce conflict for + in state 49 resolved as shift
-WARNING: shift/reduce conflict for - in state 49 resolved as shift
-WARNING: shift/reduce conflict for * in state 49 resolved as shift
-WARNING: shift/reduce conflict for / in state 49 resolved as shift
-WARNING: shift/reduce conflict for % in state 49 resolved as shift
-WARNING: shift/reduce conflict for < in state 49 resolved as shift
-WARNING: shift/reduce conflict for > in state 49 resolved as shift
-WARNING: shift/reduce conflict for MENOR_IGUAL in state 49 resolved as shift
-WARNING: shift/reduce conflict for MAYOR_IGUAL in state 49 resolved as shift
-WARNING: shift/reduce conflict for IGUAL_IGUAL in state 49 resolved as shift
-WARNING: shift/reduce conflict for DIFERENTE in state 49 resolved as shift
-WARNING: shift/reduce conflict for + in state 50 resolved as shift
-WARNING: shift/reduce conflict for - in state 50 resolved as shift
-WARNING: shift/reduce conflict for * in state 50 resolved as shift
-WARNING: shift/reduce conflict for / in state 50 resolved as shift
-WARNING: shift/reduce conflict for % in state 50 resolved as shift
-WARNING: shift/reduce conflict for < in state 50 resolved as shift
-WARNING: shift/reduce conflict for > in state 50 resolved as shift
-WARNING: shift/reduce conflict for MENOR_IGUAL in state 50 resolved as shift
-WARNING: shift/reduce conflict for MAYOR_IGUAL in state 50 resolved as shift
-WARNING: shift/reduce conflict for IGUAL_IGUAL in state 50 resolved as shift
-WARNING: shift/reduce conflict for DIFERENTE in state 50 resolved as shift
-WARNING: shift/reduce conflict for + in state 51 resolved as shift
-WARNING: shift/reduce conflict for - in state 51 resolved as shift
-WARNING: shift/reduce conflict for * in state 51 resolved as shift
-WARNING: shift/reduce conflict for / in state 51 resolved as shift
-WARNING: shift/reduce conflict for % in state 51 resolved as shift
-WARNING: shift/reduce conflict for < in state 51 resolved as shift
-WARNING: shift/reduce conflict for > in state 51 resolved as shift
-WARNING: shift/reduce conflict for MENOR_IGUAL in state 51 resolved as shift
-WARNING: shift/reduce conflict for MAYOR_IGUAL in state 51 resolved as shift
-WARNING: shift/reduce conflict for IGUAL_IGUAL in state 51 resolved as shift
-WARNING: shift/reduce conflict for DIFERENTE in state 51 resolved as shift

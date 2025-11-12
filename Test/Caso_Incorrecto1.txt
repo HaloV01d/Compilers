@@ -1,9 +1,9 @@
 inicio
 1Primer = 3;
 2Segundo = 5;
-Si (1Primer < 2Segundo)
-Escribe(Primer);
+Si (1Primer < 2Segundo
+Escribe(Primer)
 Sino
-Escribe(Segundo);
+Escribe(Segundo)
 finsi
 final

@@ -3,8 +3,8 @@ Xx = 5$
 y = 7
 Igual = Xx
 sI (Xx < y);
-Escribe(primer);
+Escribe(primer)
 Sino
-Escribe(diferente);
+Escribe(diferente)
 finsi
 final

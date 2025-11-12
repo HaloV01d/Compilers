@@ -2,7 +2,7 @@
 cuentá = 45;
 Banco = 35;
 $saldo = 10;
-Escribe(cuentá);
+Escribe(cuentá)
 Escribe(“texto”);
-Escribe(¿banco?);
+Escribe(¿banco?)
 Final!
