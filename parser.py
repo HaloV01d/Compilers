@@ -118,7 +118,7 @@ parser = yacc.yacc() # Build the parser
 #     PRUEBA RÁPIDA
 # =========================
 if __name__ == '__main__': # Test the parser
-    ruta = 'C:\\Users\\Alondra Soto\\OneDrive\\Documents\\Development\\Compilers\\Test\\Caso_Incorrecto2.txt'
+    ruta = 'C:\\Users\\Alondra Soto\\OneDrive\\Documents\\Development\\Compilers\\Test\\Caso_Correcto1.txt'
     with open(ruta, 'r', encoding='Utf-8', errors='replace') as archivo:
         datos = archivo.read()
     result = parser.parse(datos) # Parse the input data
