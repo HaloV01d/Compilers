@@ -1,0 +1,6 @@
+inicio
+3a = 5
+Si (b => 10)
+   Escribr(b)
+finsi
+Finale

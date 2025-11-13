@@ -1,0 +1,11 @@
+inicio
+a = 5;
+b = 10;
+c = a + b * 2;
+Si (c > 10)
+   Escribe(c);
+sino
+   Lee(c);
+finsi
+Escribe(a);
+final 
