@@ -1,11 +1,11 @@
 inicio
-a = 5;
-b = 10;
-c = a + b * 2;
-Si (c > 10)
-   Escribe(c);
+a1 = 5
+b1 = 10
+c1 = a1 + b1 * 2;
+Si (c1 > 10)
+   Escribe(c1);
 sino
-   Lee(c);
+   Lee(c1);
 finsi
-Escribe(a);
+Escribe(a1);
 final 
