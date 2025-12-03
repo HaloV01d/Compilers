@@ -70,16 +70,16 @@ def p_instruccion_si_con_sino(p): # If instruction with else rule
 
 def p_operadores_binarios(p):
     '''expresion : expresion '+' expresion
-                 | expresion '-' expresion
-                 | expresion '*' expresion
-                 | expresion '/' expresion
-                 | expresion '%' expresion
-                 | expresion '<' expresion
-                 | expresion '>' expresion
-                 | expresion MENOR_IGUAL expresion
-                 | expresion MAYOR_IGUAL expresion
-                 | expresion IGUAL_IGUAL expresion
-                 | expresion DIFERENTE expresion'''
+                | expresion '-' expresion
+                | expresion '*' expresion
+                | expresion '/' expresion
+                | expresion '%' expresion
+                | expresion '<' expresion
+                | expresion '>' expresion
+                | expresion MENOR_IGUAL expresion
+                | expresion MAYOR_IGUAL expresion
+                | expresion IGUAL_IGUAL expresion
+                | expresion DIFERENTE expresion'''
     op = p[2]
     if op == '+':
         p[0] = ('suma', p[1], p[3])
@@ -118,7 +118,7 @@ parser = yacc.yacc() # Build the parser
 #     PRUEBA RÁPIDA
 # =========================
 if __name__ == '__main__': # Test the parser
-    ruta = 'C:\\Users\\Alondra Soto\\OneDrive\\Documents\\Development\\Compilers\\Test\\Prueba2.txt'
+    ruta = 'C:\\Users\\Alondra Soto\\OneDrive\\Documents\\Development\\Compilers\\Test\\Caso_Correcto1.txt'
     with open(ruta, 'r', encoding='Utf-8', errors='replace') as archivo:
         datos = archivo.read()
     result = parser.parse(datos) # Parse the input data
